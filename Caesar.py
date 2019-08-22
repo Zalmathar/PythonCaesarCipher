@@ -6,15 +6,32 @@
 
 import curses
 
-key  = input('Key: ') # Get key for ceaser cypher
-if ascii.isalnum(key) == False #  Check to see if key is a number
-    keycheck = False
-    while keycheck = False:
-        print('Key is not a numeric value please try again')
-        key = input('Key: ')
-        if ascii.isalnum(key) == True
-            keycheck = True
-        else 
-            keycheck = False
-text = input('Text to be encrypted: ')
 
+keycheck = 0
+while keycheck < 1:
+    key  = input('Key: ') # Get key for ceaser cypher
+    try:
+        val = int(key)
+        print('key is valid integer')
+        keycheck = 1
+    except ValueError:
+        print('key is not a number please try again')
+
+charcheck = 0
+while charcheck < 1:
+    charInput = input('Text to be Chiphered: ')
+    try:
+        val = int(charInput)
+        print('Input invalid please try again')
+    except ValueError:
+        print('Character input accepted. Chiphering text!')
+        charcheck = 1
+ciphered = []        
+for x in charInput:
+    intToascii = ''
+    asciiToInt = ord(x)
+    asciiToInt =+ val
+    print(ord(x))
+    intToascii = chr(asciiToInt)
+    ciphered.append(intToascii)
+print(*ciphered, sep = '')
