@@ -7,14 +7,23 @@
 import curses
 
 key  = input('Key: ') # Get key for ceaser cypher
-if ascii.isalnum(key) == False #  Check to see if key is a number
-    keycheck = False
-    while keycheck = False:
-        print('Key is not a numeric value please try again')
+while True:
+    try:
+        check = int(key)
+        print("Key is valid.")
+        break
+    except ValueError:
+        print("Key is not a number! Please try again.")
         key = input('Key: ')
-        if ascii.isalnum(key) == True
-            keycheck = True
-        else 
-            keycheck = False
+key = int(key)
 text = input('Text to be encrypted: ')
-
+cypher = ''
+for x in text:
+    if x.isupper():
+        cypher =+ chr((((ord(x) + key) - 97) % 26) + 97)
+    elif x.islower():
+        cypher =+ chr((((ord(x) + key) - 65) % 26) + 65)
+    else:
+        cypher =+ x
+print("Cyphered text: " + cypher)
+exit()
